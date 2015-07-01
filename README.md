@@ -5,6 +5,8 @@
 
 <a name="module_find-replace"></a>
 ## find-replace
+Find and replace items in an array.
+
 **Example**  
 ```js
 > findReplace = require("find-replace");
@@ -18,15 +20,15 @@
 > findReplace([ 1, 2, 3], 2, "two", "zwei")
 [ 1, 'two', 'zwei', 3 ]
 ```
-<a name="module_find-replace..findReplace"></a>
-### find-replace~findReplace(array, valueTest) ⇒ <code>array</code>
-**Kind**: inner method of <code>[find-replace](#module_find-replace)</code>  
+<a name="exp_module_find-replace--findReplace"></a>
+### findReplace(array, valueTest, [...replaceWith]) ⇒ <code>array</code> ⏏
+**Kind**: Exported function  
 
-| Param | Type |
-| --- | --- |
-| array | <code>array</code> | 
-| valueTest | <code>valueTest</code> | 
-| ... | <code>any</code> | 
+| Param | Type | Description |
+| --- | --- | --- |
+| array | <code>array</code> | the input array |
+| valueTest | <code>valueTest</code> | a query to match the value you're looking for |
+| [...replaceWith] | <code>any</code> | optional replacement items |
 
 
 * * *
