@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "array-back": "^1.0.1",
+    "test-value": "^1.0.0",
     "typical": "^2.2.0"
   }
 }
