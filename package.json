@@ -2,14 +2,16 @@
   "name": "find-replace",
   "author": "Lloyd Brookes <75pound@gmail.com>",
   "version": "1.0.1",
-  "description": "Find and replace items of an array",
+  "description": "Find and either replace or remove items from an array",
   "repository": "https://github.com/75lb/find-replace.git",
   "license": "MIT",
   "main": "./lib/find-replace.js",
   "keywords": [
     "find",
     "replace",
-    "array"
+    "array",
+    "remove",
+    "splice"
   ],
   "engines": {
     "node": ">=0.10.0"
