@@ -14,18 +14,18 @@
     "splice"
   ],
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=4.0.0"
   },
   "scripts": {
-    "test": "tape test/*.js",
+    "test": "test-runner test/*.js",
     "docs": "jsdoc2md -t jsdoc2md/README.hbs lib/*.js > README.md; echo"
   },
   "devDependencies": {
-    "jsdoc-to-markdown": "^1.3.3",
-    "tape": "^4.5.1"
+    "jsdoc-to-markdown": "^2.0.1",
+    "test-runner": "^0.3.0"
   },
   "dependencies": {
-    "array-back": "^1.0.2",
-    "test-value": "^2.0.0"
+    "array-back": "^1.0.4",
+    "test-value": "^2.1.0"
   }
 }
