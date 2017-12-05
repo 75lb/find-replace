@@ -26,6 +26,6 @@
   },
   "dependencies": {
     "array-back": "^2.0.0",
-    "test-value": "^2.1.0"
+    "test-value": "^3.0.0"
   }
 }
