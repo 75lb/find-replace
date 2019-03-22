@@ -2,7 +2,7 @@
   "name": "find-replace",
   "author": "Lloyd Brookes <75pound@gmail.com>",
   "version": "2.0.1",
-  "description": "Find and either replace or remove items from an array",
+  "description": "Find and either replace or remove items in an array",
   "repository": "https://github.com/75lb/find-replace.git",
   "license": "MIT",
   "main": "dist/index.js",
