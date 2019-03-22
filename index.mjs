@@ -7,23 +7,23 @@ import arrayify from './node_modules/array-back/index.mjs'
  * @example
  * > findReplace = require('find-replace')
  *
- * > findReplace([ 1, 2, 3], 2, 'two')
+ * > findReplace([ 1, 2, 3], n => n === 2, 'two')
  * [ 1, 'two', 3 ]
  *
- * > findReplace([ 1, 2, 3], 2, [ 'two', 'zwei' ])
+ * > findReplace([ 1, 2, 3], n => n === 2, [ 'two', 'zwei' ])
  * [ 1, [ 'two', 'zwei' ], 3 ]
  *
- * > findReplace([ 1, 2, 3], 2, 'two', 'zwei')
+ * > findReplace([ 1, 2, 3], n => n === 2, 'two', 'zwei')
  * [ 1, 'two', 'zwei', 3 ]
  *
- * > findReplace([ 1, 2, 3], 2) // no replacement, so remove
+ * > findReplace([ 1, 2, 3], n => n === 2) // no replacement, so remove
  * [ 1, 3 ]
  */
 
 /**
  * @param {array} - the input array
- * @param {testFn} - a [test-value](https://github.com/75lb/test-value) query to match the value you're looking for
- * @param [replaceWith] {...any} - If specified, found values will be replaced with these values, else  removed.
+ * @param {testFn} - A predicate function which, if returning `true` causes the current item to be replaced.
+ * @param [replaceWith] {...any} - If specified, found values will be replaced with these values, else removed.
  * @returns {array}
  * @alias module:find-replace
  */

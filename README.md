@@ -13,28 +13,28 @@ Find and either replace or remove items from an array.
 ```js
 > findReplace = require('find-replace')
 
-> findReplace([ 1, 2, 3], 2, 'two')
+> findReplace([ 1, 2, 3], n => n === 2, 'two')
 [ 1, 'two', 3 ]
 
-> findReplace([ 1, 2, 3], 2, [ 'two', 'zwei' ])
+> findReplace([ 1, 2, 3], n => n === 2, [ 'two', 'zwei' ])
 [ 1, [ 'two', 'zwei' ], 3 ]
 
-> findReplace([ 1, 2, 3], 2, 'two', 'zwei')
+> findReplace([ 1, 2, 3], n => n === 2, 'two', 'zwei')
 [ 1, 'two', 'zwei', 3 ]
 
-> findReplace([ 1, 2, 3], 2) // no replacement, so remove
+> findReplace([ 1, 2, 3], n => n === 2) // no replacement, so remove
 [ 1, 3 ]
 ```
 <a name="exp_module_find-replace--findReplace"></a>
 
-### findReplace(array, valueTest, [...replaceWith]) ⇒ <code>array</code> ⏏
+### findReplace(array, testFn, [...replaceWith]) ⇒ <code>array</code> ⏏
 **Kind**: Exported function  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | array | <code>array</code> | the input array |
-| valueTest | <code>valueTest</code> | a [test-value](https://github.com/75lb/test-value) query to match the value you're looking for |
-| [...replaceWith] | <code>any</code> | If specified, found values will be replaced with these values, else  removed. |
+| testFn | <code>testFn</code> | A predicate function which, if returning `true` causes the current item to be replaced. |
+| [...replaceWith] | <code>any</code> | If specified, found values will be replaced with these values, else removed. |
 
 
 * * *

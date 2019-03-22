@@ -18,7 +18,7 @@
   },
   "scripts": {
     "test": "test-runner test.js",
-    "docs": "jsdoc2md -t README.hbs index.mjs > README.md; echo",
+    "docs": "jsdoc2md -c jsdoc.conf -t README.hbs index.mjs > README.md; echo",
     "dist": "rollup index.mjs -f umd -n findReplace -o dist/index.js && rollup index.mjs -f esm -o dist/index.mjs"
   },
   "devDependencies": {
