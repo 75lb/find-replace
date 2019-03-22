@@ -1,6 +1,4 @@
-'use strict'
-const arrayify = require('array-back')
-const testValue = require('test-value')
+import arrayify from './node_modules/array-back/index.mjs'
 
 /**
  * Find and either replace or remove items from an array.
@@ -21,16 +19,15 @@ const testValue = require('test-value')
  * > findReplace([ 1, 2, 3], 2) // no replacement, so remove
  * [ 1, 3 ]
  */
-module.exports = findReplace
 
 /**
  * @param {array} - the input array
- * @param {valueTest} - a [test-value](https://github.com/75lb/test-value) query to match the value you're looking for
+ * @param {testFn} - a [test-value](https://github.com/75lb/test-value) query to match the value you're looking for
  * @param [replaceWith] {...any} - If specified, found values will be replaced with these values, else  removed.
  * @returns {array}
  * @alias module:find-replace
  */
-function findReplace (array, valueTest) {
+function findReplace (array, testFn) {
   const found = []
   const replaceWiths = arrayify(arguments)
   replaceWiths.splice(0, 2)
@@ -45,7 +42,7 @@ function findReplace (array, valueTest) {
       }
     })
 
-    if (testValue(value, valueTest)) {
+    if (testFn(value)) {
       found.push({
         index: index,
         replaceWithValue: expanded
@@ -60,3 +57,5 @@ function findReplace (array, valueTest) {
 
   return array
 }
+
+export default findReplace
