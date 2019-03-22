@@ -7,22 +7,23 @@
 <a name="module_find-replace"></a>
 
 ## find-replace
-Find and either replace or remove items from an array.
+Find and either replace or remove items in an array.
 
 **Example**  
 ```js
-> findReplace = require('find-replace')
+> const findReplace = require('find-replace')
+> const numbers = [ 1, 2, 3]
 
-> findReplace([ 1, 2, 3], n => n === 2, 'two')
+> findReplace(numbers, n => n === 2, 'two')
 [ 1, 'two', 3 ]
 
-> findReplace([ 1, 2, 3], n => n === 2, [ 'two', 'zwei' ])
+> findReplace(numbers, n => n === 2, [ 'two', 'zwei' ])
 [ 1, [ 'two', 'zwei' ], 3 ]
 
-> findReplace([ 1, 2, 3], n => n === 2, 'two', 'zwei')
+> findReplace(numbers, n => n === 2, 'two', 'zwei')
 [ 1, 'two', 'zwei', 3 ]
 
-> findReplace([ 1, 2, 3], n => n === 2) // no replacement, so remove
+> findReplace(numbers, n => n === 2) // no replacement, so remove
 [ 1, 3 ]
 ```
 <a name="exp_module_find-replace--findReplace"></a>
@@ -32,8 +33,8 @@ Find and either replace or remove items from an array.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| array | <code>array</code> | the input array |
-| testFn | <code>testFn</code> | A predicate function which, if returning `true` causes the current item to be replaced. |
+| array | <code>array</code> | The input array |
+| testFn | <code>testFn</code> | A predicate function which, if returning `true` causes the current item to be operated on. |
 | [...replaceWith] | <code>any</code> | If specified, found values will be replaced with these values, else removed. |
 
 

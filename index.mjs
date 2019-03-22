@@ -1,28 +1,29 @@
 import arrayify from './node_modules/array-back/index.mjs'
 
 /**
- * Find and either replace or remove items from an array.
+ * Find and either replace or remove items in an array.
  *
  * @module find-replace
  * @example
- * > findReplace = require('find-replace')
+ * > const findReplace = require('find-replace')
+ * > const numbers = [ 1, 2, 3]
  *
- * > findReplace([ 1, 2, 3], n => n === 2, 'two')
+ * > findReplace(numbers, n => n === 2, 'two')
  * [ 1, 'two', 3 ]
  *
- * > findReplace([ 1, 2, 3], n => n === 2, [ 'two', 'zwei' ])
+ * > findReplace(numbers, n => n === 2, [ 'two', 'zwei' ])
  * [ 1, [ 'two', 'zwei' ], 3 ]
  *
- * > findReplace([ 1, 2, 3], n => n === 2, 'two', 'zwei')
+ * > findReplace(numbers, n => n === 2, 'two', 'zwei')
  * [ 1, 'two', 'zwei', 3 ]
  *
- * > findReplace([ 1, 2, 3], n => n === 2) // no replacement, so remove
+ * > findReplace(numbers, n => n === 2) // no replacement, so remove
  * [ 1, 3 ]
  */
 
 /**
- * @param {array} - the input array
- * @param {testFn} - A predicate function which, if returning `true` causes the current item to be replaced.
+ * @param {array} - The input array
+ * @param {testFn} - A predicate function which, if returning `true` causes the current item to be operated on.
  * @param [replaceWith] {...any} - If specified, found values will be replaced with these values, else removed.
  * @returns {array}
  * @alias module:find-replace
