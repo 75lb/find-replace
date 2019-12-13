@@ -1,24 +1,7 @@
 import arrayify from './node_modules/array-back/index.mjs'
 
 /**
- * Find and either replace or remove items in an array.
- *
  * @module find-replace
- * @example
- * > const findReplace = require('find-replace')
- * > const numbers = [ 1, 2, 3]
- *
- * > findReplace(numbers, n => n === 2, 'two')
- * [ 1, 'two', 3 ]
- *
- * > findReplace(numbers, n => n === 2, [ 'two', 'zwei' ])
- * [ 1, [ 'two', 'zwei' ], 3 ]
- *
- * > findReplace(numbers, n => n === 2, 'two', 'zwei')
- * [ 1, 'two', 'zwei', 3 ]
- *
- * > findReplace(numbers, n => n === 2) // no replacement, so remove
- * [ 1, 3 ]
  */
 
 /**
@@ -52,7 +35,7 @@ function findReplace (array, testFn) {
   })
 
   found.reverse().forEach(item => {
-    const spliceArgs = [ item.index, 1 ].concat(item.replaceWithValue)
+    const spliceArgs = [item.index, 1].concat(item.replaceWithValue)
     array.splice.apply(array, spliceArgs)
   })
 
