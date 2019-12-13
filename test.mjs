@@ -1,6 +1,6 @@
-import Tom from 'test-object-model'
+import Tom from 'test-object-model/index.mjs'
 import findReplace from './index.mjs'
-import getAssert from 'isomorphic-assert'
+import getAssert from 'isomorphic-assert/index.mjs'
 
 async function getTom () {
   const tom = new Tom()
