@@ -6,7 +6,9 @@
 
 # find-replace
 
-Replace or remove multiple items in an array. The built-in `array.splice()` method only operates on one item at a time and requires you to know its index.
+Replace or remove multiple items in an array.
+
+Similar to the built-in `array.splice()` method with the following difference: `splice` only operates on one item at a time and requires you to know its index. `find-replace` will operate on every item satisfying the find function.
 
 ## Synopsis
 
