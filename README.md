@@ -8,9 +8,9 @@
 
 Replace or remove multiple items in an array.
 
-Similar to the built-in `array.splice()` method with the following differences:
+Similar to [array.prototype.splice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) with the following differences:
 
-* `splice` only operates on one item at a time and requires you to know its index. `find-replace` will operate on every item satisfying the find function.
+* `splice` only operates on one item at a time requiring you to know its index. `find-replace` will operate on every item satisfying the find function.
 * If a function is passed as a `replaceWith` argument, `find-replace` will invoke it to compute the replacement value.
 
 ## Synopsis
@@ -53,14 +53,14 @@ console.log(result)
 ## find-replace
 <a name="exp_module_find-replace--findReplace"></a>
 
-### findReplace(array, testFn, [...replaceWith]) ⇒ <code>array</code> ⏏
+### findReplace(array, findFn, [...replaceWith]) ⇒ <code>array</code> ⏏
 **Kind**: Exported function  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | array | <code>array</code> | The input array |
-| testFn | <code>testFn</code> | A predicate function which, if returning `true` causes the current item to be operated on. |
-| [...replaceWith] | <code>any</code> | If specified, each found value will be replaced with these values, else removed. If the `replaceWith` value is a function, it will be invoked with the found item and its result used as the replace value. |
+| findFn | <code>function</code> | A predicate function which, if returns `true` causes the current item to be operated on. |
+| [...replaceWith] | <code>any</code> | If specified, each found value will be replaced with these values, else removed. If a `replaceWith` value is a function, it will be invoked with the found item and its result used as the replace value. |
 
 
 # Load anywhere
