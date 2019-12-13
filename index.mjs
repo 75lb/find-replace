@@ -7,14 +7,15 @@ import arrayify from 'array-back/index.mjs'
 /**
  * @param {array} - The input array
  * @param {testFn} - A predicate function which, if returning `true` causes the current item to be operated on.
- * @param [replaceWith] {...any} - If specified, found values will be replaced with these values, else removed.
+ * @param [replaceWith] {...any} - If specified, each found value will be replaced with these values, else removed. If the `replaceWith` value is a function, it will be invoked with the found item and its result used as the replace value.
  * @returns {array}
  * @alias module:find-replace
  */
-function findReplace (array, testFn) {
+function findReplace (array, testFn, ...replaceWiths) {
   const found = []
-  const replaceWiths = arrayify(arguments)
-  replaceWiths.splice(0, 2)
+  if (!Array.isArray(array)) {
+    throw new Error('Input must be an array')
+  }
 
   for (const [index, value] of array.entries()) {
     let expanded = []

@@ -6,12 +6,16 @@ async function getTom () {
   const tom = new Tom()
   const a = await getAssert()
 
-  tom.test('find primitive, replace with primitive', function (t) {
-    const result = findReplace([1, 2, 3, 4, 2], n => n === 2, 'two')
+  tom.test('find primitive, replace with primitive', function () {
+    const result = findReplace(
+      [1, 2, 3, 4, 2],
+      n => n === 2,
+      'two'
+    )
     a.deepEqual(result, [1, 'two', 3, 4, 'two'])
   })
 
-  tom.test('find primitive, replace with array', function (t) {
+  tom.test('find primitive, replace with array', function () {
     const result = findReplace(
       [1, 2, 3, 4, 2],
       n => n === 2,
@@ -20,12 +24,17 @@ async function getTom () {
     a.deepEqual(result, [1, ['two', 'zwei'], 3, 4, ['two', 'zwei']])
   })
 
-  tom.test('find primitive, replace with several primitives', function (t) {
-    const result = findReplace([1, 2, 3, 4, 2], n => n === 2, 'two', 'zwei')
+  tom.test('find primitive, replace with several primitives', function () {
+    const result = findReplace(
+      [1, 2, 3, 4, 2],
+      n => n === 2,
+      'two',
+      'zwei'
+    )
     a.deepEqual(result, [1, 'two', 'zwei', 3, 4, 'two', 'zwei'])
   })
 
-  tom.test('getopt example', function (t) {
+  tom.test('getopt example', function () {
     const result = findReplace(
       ['--one', '1', '-abc', 'three'],
       item => /^-(\w{2,})$/.test(item),
@@ -36,7 +45,7 @@ async function getTom () {
     a.deepEqual(result, ['--one', '1', '-a', '-b', '-c', 'three'])
   })
 
-  tom.test('getopt example 2', function (t) {
+  tom.test('getopt example 2', function () {
     const result = findReplace(
       ['--one', '1', '-abc', 'three'],
       item => /^-(\w{2,})$/.test(item),
@@ -44,6 +53,13 @@ async function getTom () {
       'milk'
     )
     a.deepEqual(result, ['--one', '1', 'bread', 'milk', 'three'])
+  })
+
+  tom.test('validation', function () {
+    a.throws(
+      () => findReplace('not an array'),
+      /must be an array/
+    )
   })
 
   return tom

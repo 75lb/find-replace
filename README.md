@@ -8,26 +8,42 @@
 
 Replace or remove multiple items in an array.
 
-Similar to the built-in `array.splice()` method with the following difference: `splice` only operates on one item at a time and requires you to know its index. `find-replace` will operate on every item satisfying the find function.
+Similar to the built-in `array.splice()` method with the following differences:
+
+* `splice` only operates on one item at a time and requires you to know its index. `find-replace` will operate on every item satisfying the find function.
+* If a function is passed as a `replaceWith` argument, `find-replace` will invoke it to compute the replacement value.
 
 ## Synopsis
 
 ```js
-> const findReplace = require('find-replace')
+const findReplace = require('find-replace')
 
-> const numbers = [ 1, 2, 3]
+const colours = ['red', 'white', 'blue', 'white']
 
-> findReplace(numbers, n => n === 2, 'two')
-[ 1, 'two', 3 ]
+const result = findReplace(
+  colours,
+  colour => colour === 'white',
+  'gold'
+)
 
-> findReplace(numbers, n => n === 2, [ 'two', 'zwei' ])
-[ 1, [ 'two', 'zwei' ], 3 ]
+console.log(result)
+// [ 'red', 'gold', 'blue', 'gold' ]
+```
 
-> findReplace(numbers, n => n === 2, 'two', 'zwei')
-[ 1, 'two', 'zwei', 3 ]
+If the `replaceWith` value is a function, it will be invoked with the found item and its result used as the replace value. For example:
 
-> findReplace(numbers, n => n === 2) // no replacement, so remove
-[ 1, 3 ]
+
+```js
+const colours = ['red', 'white', 'blue', 'white']
+
+const result = findReplace(
+  colours,
+  colour => colour === 'red',
+  colour => colour.split('')
+)
+
+console.log(result)
+// [ 'r', 'e', 'd', 'white', 'blue', 'white' ]
 ```
 
 # API Reference
@@ -44,7 +60,7 @@ Similar to the built-in `array.splice()` method with the following difference: `
 | --- | --- | --- |
 | array | <code>array</code> | The input array |
 | testFn | <code>testFn</code> | A predicate function which, if returning `true` causes the current item to be operated on. |
-| [...replaceWith] | <code>any</code> | If specified, found values will be replaced with these values, else removed. |
+| [...replaceWith] | <code>any</code> | If specified, each found value will be replaced with these values, else removed. If the `replaceWith` value is a function, it will be invoked with the found item and its result used as the replace value. |
 
 
 # Load anywhere
@@ -77,4 +93,6 @@ Old browser (adds `window.findReplace`):
 
 * * *
 
-&copy; 2015-20 Lloyd Brookes \<75pound@gmail.com\>. Documented by [jsdoc-to-markdown](https://github.com/jsdoc2md/jsdoc-to-markdown).
+&copy; 2015-20 Lloyd Brookes \<75pound@gmail.com\>.
+
+Isomorphic test suite by [test-runner](https://github.com/test-runner-js/test-runner) and [web-runner](https://github.com/test-runner-js/web-runner). Documented by [jsdoc-to-markdown](https://github.com/jsdoc2md/jsdoc-to-markdown).
