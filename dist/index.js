@@ -81,7 +81,7 @@
     const replaceWiths = arrayify(arguments);
     replaceWiths.splice(0, 2);
 
-    arrayify(array).forEach((value, index) => {
+    for (const [index, value] of array.entries()) {
       let expanded = [];
       replaceWiths.forEach(replaceWith => {
         if (typeof replaceWith === 'function') {
@@ -97,12 +97,12 @@
           replaceWithValue: expanded
         });
       }
-    });
+    }
 
-    found.reverse().forEach(item => {
+    for (const item of found.reverse()) {
       const spliceArgs = [item.index, 1].concat(item.replaceWithValue);
       array.splice.apply(array, spliceArgs);
-    });
+    }
 
     return array
   }

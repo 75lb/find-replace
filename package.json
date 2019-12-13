@@ -20,14 +20,15 @@
   "scripts": {
     "test": "npm run dist && esm-runner test.mjs && web-runner test.mjs",
     "docs": "jsdoc2md -c jsdoc.conf -t README.hbs index.mjs > README.md",
-    "dist": "rollup index.mjs -f umd -n findReplace -o dist/index.js && rollup index.mjs -f esm -o dist/index.mjs"
+    "dist": "rollup -c"
   },
   "devDependencies": {
     "@test-runner/web": "^0.3.3",
     "esm-runner": "^0.3.4",
     "isomorphic-assert": "^0.1.1",
     "jsdoc-to-markdown": "^5.0.3",
-    "rollup": "^1.27.12"
+    "rollup": "^1.27.12",
+    "rollup-plugin-node-resolve": "^5.2.0"
   },
   "dependencies": {
     "array-back": "^4.0.1"
