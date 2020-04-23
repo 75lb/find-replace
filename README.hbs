@@ -46,7 +46,9 @@ console.log(result)
 // [ 'r', 'e', 'd', 'white', 'blue', 'white' ]
 ```
 
-## Real world example
+## Real world examples
+
+### Replace with an array of strings
 
 This example explodes combined (`-vrf`) into individual flags (`-v -r -f`).
 
@@ -77,6 +79,31 @@ Output:
 ```
 $ node example/argv.mjs
 [ '-v', '-r', '-f', 'file1.js', 'file2.js' ]
+```
+
+### Delete found items
+
+If you omit the third `replaceWith` argument, all found items will be deleted.
+
+```js
+import findReplace from 'find-replace/index.mjs'
+
+const fruits = ['apple', 'pear', 'nectarine', 'pineapple', 'peach']
+const bad = ['pear', 'pineapple']
+
+const result = findReplace(
+  fruits,
+  fruit => bad.includes(fruit)
+)
+
+console.log(result)
+```
+
+Output:
+
+```
+$ node example/delete.mjs
+[ 'apple', 'nectarine', 'peach' ]
 ```
 
 # API Reference
