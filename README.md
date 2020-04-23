@@ -58,17 +58,15 @@ import findReplace from 'find-replace/index.mjs'
 const argv = ['-vrf', 'file1.js', 'file2.js']
 const combinedShortOptionRe = /^-[^\d-]{2,}$/
 
-function expandCombinedShortArg (arg) {
-  return arg
-    .slice(1) /* remove initial hypen */
-    .split('')
-    .map(letter => '-' + letter)
-}
-
 const result = findReplace(
   argv,
   arg => combinedShortOptionRe.test(arg),
-  expandCombinedShortArg
+  arg => {
+    return arg
+      .slice(1) /* remove initial hypen */
+      .split('')
+      .map(letter => '-' + letter)
+  }
 )
 
 console.log(result)
@@ -120,7 +118,7 @@ $ node example/delete.mjs
 | --- | --- | --- |
 | array | <code>array</code> | The input array |
 | findFn | <code>function</code> | A predicate function which, if returns `true` causes the current item to be operated on. |
-| [...replaceWith] | <code>any</code> | If specified, each found value will be replaced with these values, else removed. If a `replaceWith` value is a function, it will be invoked with the found item and its result used as the replace value. |
+| [...replaceWith] | <code>any</code> | If not specified, each found value will be removed. If specified, each found value will be replaced with this value. If the `replaceWith` value is a function, it will be invoked with the found value and its result used as the replace value. If the `replaceWith` function returns an array, the found value will be replaced with each item in the array (not replaced with the array itself). |
 
 
 # Load anywhere
