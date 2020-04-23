@@ -46,6 +46,39 @@ console.log(result)
 // [ 'r', 'e', 'd', 'white', 'blue', 'white' ]
 ```
 
+## Real world example
+
+This example explodes combined (`-vrf`) into individual flags (`-v -r -f`).
+
+```js
+import findReplace from 'find-replace/index.mjs'
+
+const argv = ['-vrf', 'file1.js', 'file2.js']
+const combinedShortOptionRe = /^-[^\d-]{2,}$/
+
+function expandCombinedShortArg (arg) {
+  return arg
+    .slice(1) /* remove initial hypen */
+    .split('')
+    .map(letter => '-' + letter)
+}
+
+const result = findReplace(
+  argv,
+  arg => combinedShortOptionRe.test(arg),
+  expandCombinedShortArg
+)
+
+console.log(result)
+```
+
+Output:
+
+```
+$ node example/argv.mjs
+[ '-v', '-r', '-f', 'file1.js', 'file2.js' ]
+```
+
 # API Reference
 
 {{>main}}
@@ -63,7 +96,7 @@ const findReplace = require('find-replace')
 Within Node.js with ECMAScript Module support enabled:
 
 ```js
-import findReplace from 'find-replace'
+import findReplace from 'find-replace/index.mjs'
 ```
 
 Within an modern browser ECMAScript Module:
