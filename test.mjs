@@ -1,5 +1,5 @@
 import Tom from 'test-object-model/index.mjs'
-import findReplace from './index.mjs'
+import findReplace from 'find-replace'
 import getAssert from 'isomorphic-assert/index.mjs'
 
 async function getTom () {

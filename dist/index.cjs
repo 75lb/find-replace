@@ -1,4 +1,4 @@
-import arrayify from 'array-back'
+'use strict';
 
 /**
  * @module find-replace
@@ -12,35 +12,35 @@ import arrayify from 'array-back'
  * @alias module:find-replace
  */
 function findReplace (array, findFn, ...replaceWiths) {
-  const found = []
+  const found = [];
   if (!Array.isArray(array)) {
     throw new Error('Input must be an array')
   }
 
   for (const [index, value] of array.entries()) {
-    let expanded = []
+    let expanded = [];
     replaceWiths.forEach(replaceWith => {
       if (typeof replaceWith === 'function') {
-        expanded = expanded.concat(replaceWith(value))
+        expanded = expanded.concat(replaceWith(value));
       } else {
-        expanded.push(replaceWith)
+        expanded.push(replaceWith);
       }
-    })
+    });
 
     if (findFn(value)) {
       found.push({
         index: index,
         replaceWithValue: expanded
-      })
+      });
     }
   }
 
   for (const item of found.reverse()) {
-    const spliceArgs = [item.index, 1].concat(item.replaceWithValue)
-    array.splice.apply(array, spliceArgs)
+    const spliceArgs = [item.index, 1].concat(item.replaceWithValue);
+    array.splice.apply(array, spliceArgs);
   }
 
   return array
 }
 
-export default findReplace
+module.exports = findReplace;

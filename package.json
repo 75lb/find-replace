@@ -5,8 +5,10 @@
   "description": "Replace or remove multiple items in an array.",
   "repository": "https://github.com/75lb/find-replace.git",
   "license": "MIT",
-  "main": "dist/index.js",
-  "module": "index.mjs",
+  "exports": {
+    "import": "./index.mjs",
+    "require": "./dist/index.cjs"
+  },
   "keywords": [
     "find",
     "replace",
@@ -15,23 +17,23 @@
     "splice"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=14"
   },
   "scripts": {
-    "test": "npm run dist && esm-runner test.mjs && web-runner test.mjs",
+    "test": "npm run dist && test-runner test.mjs",
     "docs": "jsdoc2md -c jsdoc.conf -t README.hbs index.mjs > README.md",
     "dist": "rollup -c"
   },
   "devDependencies": {
-    "@test-runner/web": "^0.3.4",
-    "esm-runner": "^0.3.4",
-    "isomorphic-assert": "^0.1.1",
-    "jsdoc-to-markdown": "^5.0.3",
-    "rollup": "^2.7.2",
-    "rollup-plugin-node-resolve": "^5.2.0"
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@test-runner/web": "^0.3.5",
+    "isomorphic-assert": "^0.2.0",
+    "jsdoc-to-markdown": "^7.0.1",
+    "rollup": "^2.52.3",
+    "test-runner": "^0.9.2"
   },
   "dependencies": {
-    "array-back": "^4.0.1"
+    "array-back": "^6.0.1"
   },
   "files": [
     "index.mjs",
