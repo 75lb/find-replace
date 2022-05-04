@@ -1,4 +1,4 @@
-import findReplace from '../index.mjs'
+import findReplace from 'find-replace'
 
 const argv = ['-vrf', 'file1.js', 'file2.js']
 const combinedShortOptionRe = /^-[^\d-]{2,}$/

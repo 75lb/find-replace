@@ -1,4 +1,4 @@
-import findReplace from '../index.mjs'
+import findReplace from 'find-replace'
 
 const fruits = ['apple', 'pear', 'nectarine', 'pineapple', 'peach']
 const bad = ['pear', 'pineapple']

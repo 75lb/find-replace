@@ -41,4 +41,4 @@ function findReplace (array, findFn, ...replaceWiths) {
   return array
 }
 
-export default findReplace;
+export { findReplace as default };
