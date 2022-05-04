@@ -2,7 +2,7 @@
 [![npm module downloads](https://badgen.net/npm/dt/find-replace)](https://www.npmjs.org/package/find-replace)
 [![Gihub repo dependents](https://badgen.net/github/dependents-repo/75lb/find-replace)](https://github.com/75lb/find-replace/network/dependents?dependent_type=REPOSITORY)
 [![Gihub package dependents](https://badgen.net/github/dependents-pkg/75lb/find-replace)](https://github.com/75lb/find-replace/network/dependents?dependent_type=PACKAGE)
-[![Build Status](https://travis-ci.org/75lb/find-replace.svg?branch=master)](https://travis-ci.org/75lb/find-replace)
+[![Node.js CI](https://github.com/75lb/find-replace/actions/workflows/node.js.yml/badge.svg)](https://github.com/75lb/find-replace/actions/workflows/node.js.yml)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://github.com/feross/standard)
 
 # find-replace
@@ -126,19 +126,19 @@ $ node example/delete.mjs
 
 This library is compatible with Node.js, the Web and any style of module loader. It can be loaded anywhere, natively without transpilation.
 
-Node.js:
+Node.js (CommonJS):
 
 ```js
 const findReplace = require('find-replace')
 ```
 
-Within Node.js with ECMAScript Module support enabled:
+Node.js (ECMAScript Module):
 
 ```js
 import findReplace from 'find-replace'
 ```
 
-Within an modern browser ECMAScript Module:
+Modern browser (ECMAScript Module):
 
 ```js
 import findReplace from './node_modules/find-replace/dist/index.mjs'
@@ -152,6 +152,6 @@ Old browser (adds `window.findReplace`):
 
 * * *
 
-&copy; 2015-21 Lloyd Brookes \<75pound@gmail.com\>.
+&copy; 2015-22 Lloyd Brookes \<75pound@gmail.com\>.
 
 Isomorphic test suite by [test-runner](https://github.com/test-runner-js/test-runner) and [web-runner](https://github.com/test-runner-js/web-runner). Documented by [jsdoc-to-markdown](https://github.com/jsdoc2md/jsdoc-to-markdown).
