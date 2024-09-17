@@ -152,6 +152,6 @@ Old browser (adds `window.findReplace`):
 
 * * *
 
-&copy; 2015-22 Lloyd Brookes \<75pound@gmail.com\>.
+&copy; 2015-25 Lloyd Brookes \<75pound@gmail.com\>.
 
-Isomorphic test suite by [test-runner](https://github.com/test-runner-js/test-runner) and [web-runner](https://github.com/test-runner-js/web-runner). Documented by [jsdoc-to-markdown](https://github.com/jsdoc2md/jsdoc-to-markdown).
+Test suite by [test-runner](https://github.com/test-runner-js/test-runner). Documented by [jsdoc-to-markdown](https://github.com/jsdoc2md/jsdoc-to-markdown).

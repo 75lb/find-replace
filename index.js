@@ -1,5 +1,3 @@
-import arrayify from 'array-back'
-
 /**
  * @module find-replace
  */
@@ -29,7 +27,7 @@ function findReplace (array, findFn, ...replaceWiths) {
 
     if (findFn(value)) {
       found.push({
-        index: index,
+        index,
         replaceWithValue: expanded
       })
     }
