@@ -1,7 +1,7 @@
 {
   "name": "find-replace",
   "author": "Lloyd Brookes <75pound@gmail.com>",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "Replace or remove multiple items in an array.",
   "repository": {
     "type": "git",
